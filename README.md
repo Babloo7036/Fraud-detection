@@ -87,4 +87,4 @@ High recall is prioritized to catch fraud, despite low precision.
 
 ```bash
 git clone <https://github.com/Babloo7036/Fraud-detection>
-cd fraud-detection-project
+cd fraud-detection
