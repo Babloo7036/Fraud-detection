@@ -1,38 +1,46 @@
 #Fraud Detection Project
+
 ##Overview
+
 This project implements a machine learning-based fraud detection system for credit card transactions. It consists of a Jupyter notebook (Fraud_detection.ipynb) for data exploration, preprocessing, and model training, and a Streamlit web application (app.py) for real-time fraud prediction. The system uses a logistic regression model to classify transactions as fraudulent or legitimate, addressing the challenge of identifying rare fraudulent activities in a highly imbalanced dataset.
 The project leverages a dataset of credit card transactions, preprocesses it to handle numerical and categorical features, trains a model with balanced class weights to account for imbalance, and provides an interactive interface for users to input transaction details and receive predictions. The goal is to detect fraudulent transactions with high recall while providing a user-friendly tool for practical use.
 Key Features
 
 ###Data Exploration and Preprocessing:
+
 Analyzes a large dataset of 6.36 million transactions with no missing values.
 Handles numerical features (amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest) with StandardScaler for normalization.
 Encodes the categorical type feature (e.g., PAYMENT, TRANSFER, CASH_OUT) using OneHotEncoder with drop='first' to avoid multicollinearity.
 
 
 ###Model Training:
+
 Uses a Pipeline with ColumnTransformer for streamlined preprocessing and a LogisticRegression classifier with class_weight='balanced' to handle the imbalanced dataset (0.13% fraud).
 Achieves 94% recall for fraud (detects most fraudulent transactions) but low precision (2%) due to many false positives.
 
 
 ###Model Evaluation:
+
 Provides detailed metrics: classification report, confusion matrix, and accuracy (94.53% overall, though dominated by the majority class).
 Confusion matrix: 1,802,143 true negatives, 104,179 false positives, 156 false negatives, 2,308 true positives.
 
 
 ###Streamlit Web Application:
+
 Interactive interface for inputting transaction details (type, amount, sender/receiver balances).
 Displays predictions as "Fraudulent" or "Legitimate" with clear visual feedback (st.error or st.success).
 Loads the trained model (fraud_detection_pipeline.pkl) for real-time predictions.
 
 
 ###Scalability and Reproducibility:
+
 Saves the trained model using joblib for easy deployment.
 Modular code structure allows for easy updates (e.g., swapping logistic regression for a more precise model like Random Forest).
 
 
 
 ##Dataset
+
 The dataset (Credit_card_data.csv) contains 6,362,620 transactions with the following columns:
 
 step: Time step (integer).
@@ -54,6 +62,7 @@ Flagged fraud: 16 (extremely rare).
 No missing values.
 
 ##Model Performance
+
 The logistic regression model, trained on a train-test split, shows:
 
 **Accuracy: 94.53% (misleading due to class imbalance).**
