@@ -34,7 +34,7 @@ if st.button("Predict"):
 
     st.subheader(f"Prediction: '{int(prediction)}'")
 
-    if prediction[0] == 1:
+    if prediction == 1:
         st.error("Fraudulent Transaction Detected!")
     else:
         st.success("Transaction is Legitimate.")
